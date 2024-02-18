@@ -1,0 +1,47 @@
+{
+    "family": "tachograph",
+    "containerDefinitions": [
+        {
+            "name": "tachograph",
+            "image": "339713093260.dkr.ecr.ap-south-1.amazonaws.com/tachograph:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "tachograph-8080-tcp",
+                    "containerPort": 8080,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/tachograph",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            }
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::339713093260:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::339713093260:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
