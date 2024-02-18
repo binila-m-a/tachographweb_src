@@ -1,0 +1,147 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="tile">
+                <h4>Overall Driving Time</h4>
+                <p>{{dashboarddata.totalDrivingTime}} Hours</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="tile">
+                <h4>Overall Rest Time</h4>
+                 <p>{{dashboarddata.totalRestTime}}Hours</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="search"> 
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search by Name or Date/Time">
+              </div>
+            </div>
+           
+
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <p> Exceeded single violation List</p>
+              <table id="box-table-a">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Violation Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngIf="dashboarddata?.exceededDriveTimeViolations; else noData">
+                    <tr *ngFor="let violation of filterViolations(dashboarddata.exceededDriveTimeViolations)">
+                      <td>{{ violation.firstName }} {{ violation.lastName }}</td>
+                      <td>{{ violation.startTime }}</td>
+                      <td>{{ violation.endTime }}</td>
+                      <td>{{ violation.violationHours }}</td>
+                    </tr>
+                  </ng-container>
+                  <ng-template #noData>
+                    <tr>
+                      <td colspan="4">No data found</td>
+                    </tr>
+                  </ng-template>
+                </tbody>
+              </table>
+            </div>
+            
+                <div class="col-md-6">
+                    <p> Exceeded rest time viloation list</p>
+                  <table id="box-table-a">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Violation Hours</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngIf="dashboarddata?.restTimeViolations; else noData">
+                        <tr *ngFor="let violation of filterViolations(dashboarddata.restTimeViolations)">
+                          <td>{{ violation.firstName }} {{ violation.lastName }}</td>
+                          <td>{{ violation.startTime }}</td>
+                          <td>{{ violation.endTime }}</td>
+                          <td>{{ violation.violationHours }}</td>
+                        </tr>
+                      </ng-container>
+                      <ng-template #noData>
+                        <tr>
+                          <td colspan="4">No data found</td>
+                        </tr>
+                      </ng-template>
+                    </tbody>
+                  </table>
+                </div>
+     
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p> Exceeded day drive viloation list</p>
+          <table id="box-table-a">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Violation Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="dashboarddata?.dayDriveTimeViolations; else noData">
+                <tr *ngFor="let violation of filterViolations(dashboarddata.dayDriveTimeViolations)">
+                  <td>{{ violation.firstName }} {{ violation.lastName }}</td>
+                  <td>{{ violation.startTime }}</td>
+                  <td>{{ violation.endTime }}</td>
+                  <td>{{ violation.violationHours }}</td>
+                </tr>
+              </ng-container>
+              <ng-template #noData>
+                <tr>
+                  <td colspan="4">No data found</td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+            <p> Exceeded week drive viloation list</p>
+          <table id="box-table-a">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Violation Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="dashboarddata?.weekDriveTimeViolations; else noData">
+                <tr *ngFor="let violation of filterViolations(dashboarddata.weekDriveTimeViolations)">
+                  <td>{{ violation.firstName }} {{ violation.lastName }}</td>
+                  <td>{{ violation.startTime }}</td>
+                  <td>{{ violation.endTime }}</td>
+                  <td>{{ violation.violationHours }}</td>
+                </tr>
+              </ng-container>
+              <ng-template #noData>
+                <tr>
+                  <td colspan="4">No data found</td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </table>
+        </div>
+     
+        
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+ 
+<form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-4">
+    <label for="driverId">Driver ID:</label>
+    <input type="text" id="driverId" formControlName="driverId">
+    </div>
+    <div class="col-md-4">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" formControlName="firstName">
+  </div>
+  <div class="col-md-4">
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" formControlName="lastName">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <label for="address">Address:</label>
+    <input type="text" id="address" formControlName="address">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" formControlName="mobileNumber">
+    </div><div class="col-md-6">
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" formControlName="nationality">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <label for="licenseNumber">License Number:</label>
+    <input type="text" id="licenseNumber" formControlName="licenseNumber">
+  </div></div>
+  <div class="row">
+    <div class="col-md-12">
+    <label for="status">Status:</label>
+    <input type="text" id="status" formControlName="status">
+  </div></div>
+  <div class="row">
+    <div class="col-md-12">
+    <button type="submit" [disabled]="!driverForm.valid">Save</button>
+    </div></div>
+  </form>
+  </div>
