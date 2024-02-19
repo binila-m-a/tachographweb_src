@@ -21,6 +21,7 @@ labels:
   team: Tachograph-Development
 # Optional: Add annotations for custom data or integrations
 annotations:
+  backstage.io/managed-by-location: url: https://github.com/binila-m-a/tachographweb_src/blob/main/catalog-info.yaml
   docker-image: binila/tachograph-app:latest
   # ... (e.g., service discovery information, deployment pipeline link)
 tags:
@@ -28,5 +29,6 @@ tags:
 links:
   # - title: Documentation
   #   url: https://your-tachograph-app-docs.com
-  - title: Repository: https://github.com/binila-m-a/tachographweb_src
+  - title: Repository
+    url: https://github.com/binila-m-a/tachographweb_src
 icon: ./assets/tacho.png
